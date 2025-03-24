@@ -8,13 +8,14 @@ namespace MiniBlogApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class PostAPIController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
-        public PostController(ApplicationDbContext dbContext) { 
+        public PostAPIController(ApplicationDbContext dbContext) { 
         this.dbContext = dbContext;
         }
         [HttpGet]
+        [Route("api/Post/GetAllPost")]
         public IActionResult GetAllPost()
         {
             var AllPosts=dbContext.Posts.ToList();
